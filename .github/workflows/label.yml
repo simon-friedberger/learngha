@@ -18,6 +18,19 @@ jobs:
 
     steps:
     - run: echo ${{ github.event.number }}
+    - name: Check out the repository to the runner
+      uses: actions/checkout@v4  
+    - name: Check out the repository to the runner
+      uses: actions/checkout@v4  
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+        path: other/
+    - run: ls -lah
     - uses: actions/labeler@v4
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
+    - uses: actions/github-script@v7
+      with:
+        script: |
+          console.log(context);
+          console.log("okay");
