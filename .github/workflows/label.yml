@@ -28,7 +28,7 @@ jobs:
       with:
         python-version: '3.12'
         cache: 'pip'
-        cache-dependency-path: tools/requirements.txt
+        cache-dependency-path: local/tools/requirements.txt
     - run: pip install dnspython
     - run: python local/tools/check_dns.py
     - uses: actions/labeler@v4
