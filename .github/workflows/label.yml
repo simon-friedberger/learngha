@@ -17,6 +17,7 @@ jobs:
       pull-requests: write
 
     steps:
+    - run: echo ${{ github.event.number }}
     - uses: actions/labeler@v4
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
