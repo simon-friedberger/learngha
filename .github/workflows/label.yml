@@ -25,7 +25,7 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.sha }}
         path: other/
-    - run: ls -lah
+    - run: ls -lahR
     - uses: actions/labeler@v4
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
@@ -35,7 +35,4 @@ jobs:
           console.log("NOW context");
           console.log("^^^^^^^^^^^");
           console.log(context);
-          console.log("NOW github.event");
-          console.log("^^^^^^^^^^^^^^^^");
-          console.log(github.event);
           console.log("okay");
