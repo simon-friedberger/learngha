@@ -20,11 +20,19 @@ jobs:
     - run: echo ${{ github.event.number }}
     - name: Check out the repository to the runner
       uses: actions/checkout@v4  
+      with:
+        sparse-checkout: |
+          README.md
+        sparse-checkout-cone-mode: false
+        path: local/
     - name: Check out the repository to the runner
       uses: actions/checkout@v4  
       with:
+        sparse-checkout: |
+          README.md
+        sparse-checkout-cone-mode: false
         ref: ${{ github.event.pull_request.head.sha }}
-        path: other/
+        path: pr/
     - run: ls -lahR
     - uses: actions/labeler@v4
       with:
